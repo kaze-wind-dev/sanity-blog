@@ -35,23 +35,22 @@ export default async function BlogDetail({params} : Params) {
   
   const post = await getDetail(slug);
   const date = formatDate(post.publishedAt);
-  console.log(post);
     return (
       <div className={styles.page}>
         <main className={styles.main} id="main">
           <h1>{post.title}</h1>
-          {post.image.asset._id && (
-          <SanityImage
-            id={post.image.asset._id}
-            baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
-            alt={post.title}
-          />
+          {post.image && (
+            <SanityImage
+              id={post.image.asset._id}
+              baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
+              alt={post.title}
+            />
           )}
           <time dateTime={date}>{date}</time>
           <p>{post.category?.name}</p>
           {post.body && <PortableText value={post.body} components={components} />}
         </main>
-      </div>
+      </div>      
     );
   }
   
