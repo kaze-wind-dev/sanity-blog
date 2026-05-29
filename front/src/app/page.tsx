@@ -12,6 +12,7 @@ export default function Home() {
         <h1>Sanityでブログを作る</h1>
         <ul>
         {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
             posts.map((post:any)=>{
               const date = formatDate(post.publishedAt);
               return(
