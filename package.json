@@ -1,0 +1,7 @@
+{
+  "name": "sanity-blog-root",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel --filter './front' --filter './studio' run dev"
+  }
+}
